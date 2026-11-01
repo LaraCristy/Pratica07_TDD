@@ -1,8 +1,7 @@
-package com.pratica_07;
-
-import org.junit.jupiter.api.Test;
+package com.pratica07;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for simple App.
