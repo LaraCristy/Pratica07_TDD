@@ -1,5 +1,6 @@
 
 package com.pratica07;
+
 /**
  * Representa um cliente do sistema.
  */
@@ -10,16 +11,18 @@ public class Cliente {
     private String genero;
 
     public Cliente(int id, String nome, int desconto) {
-        this.id = id;
-        this.nome = nome;
-        this.desconto = desconto;
+        this(id, nome, desconto, "nd");
     }
 
-    public Cliente(int id, String nome, int desconto, String genero) {
+public Cliente(int id, String nome, int desconto, String genero) {
+        if (nome == null) {
+            throw new NullPointerException("O nome não pode ser nulo.");
+        }
+
         this.id = id;
         this.nome = nome;
-        this.desconto = desconto;
-        this.genero = genero;
+        setDesconto(desconto);
+        setGenero(genero);
     }
 
     public int getId() {
@@ -39,11 +42,32 @@ public class Cliente {
     }
 
     public void setDesconto(int desconto) {
+        if (desconto < 0 || desconto > 100) {
+            throw new IllegalArgumentException(
+                    "O desconto deve estar entre 0 e 100.");
+        }
+
         this.desconto = desconto;
+    }
+
+    private void setGenero(String genero) {
+        if (genero == null) {
+            throw new NullPointerException("O gênero não pode ser nulo.");
+        }
+
+        genero = genero.trim().toLowerCase();
+
+        if (!genero.equals("m")
+                && !genero.equals("f")
+                && !genero.equals("nd")) {
+            throw new IllegalArgumentException("Gênero inválido.");
+        }
+
+        this.genero = genero;
     }
 
     @Override
     public String toString() {
-        return "";
+        return nome + "(" + id + ")(" + desconto + "%)";
     }
 }
