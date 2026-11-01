@@ -1,5 +1,5 @@
 
-package com.pratica_07;
+package com.pratica07;
 
 public class FaturaCliente {
     private int id;

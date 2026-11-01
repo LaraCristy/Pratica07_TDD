@@ -1,6 +1,8 @@
 
-package com.pratica_07;
-
+package com.pratica07;
+/**
+ * Representa um cliente do sistema.
+ */
 public class Cliente {
     private int id;
     private String nome;

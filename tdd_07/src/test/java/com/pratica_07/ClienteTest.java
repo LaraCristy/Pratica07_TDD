@@ -1,5 +1,5 @@
 
-package com.pratica_07;
+package com.pratica07;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,5 +82,65 @@ class ClienteTest {
         Cliente cliente = new Cliente(1, "Lara", 10);
 
         assertEquals("Lara[1,Lara,10]", cliente.toString());
+    }
+
+    // Testes adicionais criados pela dupla
+
+    @Test
+    void deveAceitarGeneroM() {
+        Cliente cliente = new Cliente(2, "João", 20, "m");
+
+        assertEquals("m", cliente.getGenero());
+    }
+
+    @Test
+    void deveAceitarGeneroNd() {
+        Cliente cliente = new Cliente(1, "Ana", 10, "nd");
+
+        assertEquals("nd", cliente.getGenero());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoNomeForNulo() {
+        assertThrows(NullPointerException.class,
+                () -> new Cliente(1, null, 10));
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoGeneroForNulo() {
+        assertThrows(NullPointerException.class,
+                () -> new Cliente(1, "Ana", 10, null));
+    }
+
+    @Test
+    void deveConverterGeneroParaMinusculo() {
+        Cliente cliente = new Cliente(1, "Ana", 10, "F");
+
+        assertEquals("f", cliente.getGenero());
+    }
+
+    @Test
+    void deveRemoverEspacosDoGenero() {
+        Cliente cliente = new Cliente(1, "Ana", 10, " M ");
+
+        assertEquals("m", cliente.getGenero());
+    }
+
+    @Test
+    void deveLancarExcecaoParaGeneroInvalido() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new Cliente(1, "Ana", 10, "x"));
+    }
+
+    @Test
+    void deveLancarExcecaoParaDescontoNegativo() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new Cliente(1, "Ana", -1));
+    }
+
+    @Test
+    void deveLancarExcecaoParaDescontoMaiorQueCem() {
+        assertThrows(IllegalArgumentException.class,
+                () -> new Cliente(1, "Ana", 101));
     }
 }
