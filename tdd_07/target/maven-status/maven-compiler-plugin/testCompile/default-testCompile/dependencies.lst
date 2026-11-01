@@ -1,7 +1,0 @@
-classpath:/workspaces/Pratica07_TDD/tdd_07/target/classes	4:770bf09f9220856c5b471967336bcabaad7fe710b669531accf325b7857e5452
-classpath:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar	154033:1579550656000
-classpath:/home/codespace/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar	2387:1559848073000
-classpath:/home/codespace/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar	7653:1559849067000
-classpath:/home/codespace/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar	96648:1579550620000
-classpath:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar	209368:1579550704000
-classpath:/home/codespace/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar	174108:1579550622000
