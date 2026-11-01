@@ -8,10 +8,11 @@ public class Cliente {
     private String genero;
 
     public Cliente(int id, String nome, int desconto) {
-        this.id = id;
-        this.nome = nome;
-        this.desconto = desconto;
-    }
+    this.id = id;
+    this.nome = nome;
+    this.desconto = desconto;
+    this.genero = "nd";
+}
 
     public Cliente(int id, String nome, int desconto, String genero) {
         this.id = id;
