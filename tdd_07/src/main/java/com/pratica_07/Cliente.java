@@ -40,8 +40,8 @@ public class Cliente {
         this.desconto = desconto;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "";
-    }
+    return nome + "[" + id + "," + nome + "," + desconto + "]";
+}
 }
