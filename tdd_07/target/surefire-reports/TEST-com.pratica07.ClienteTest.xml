@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.pratica07.ClienteTest" time="0.277" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.pratica07.ClienteTest" time="0.153" tests="1" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -11,9 +11,9 @@
     <property name="java.vm.specification.version" value="25"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/local/sdkman/candidates/java/25.0.5.0+2-ms/lib"/>
-    <property name="sun.java.command" value="/workspaces/Pratica07_TDD/tdd_07/target/surefire/surefirebooter5912751286823862113.jar /workspaces/Pratica07_TDD/tdd_07/target/surefire 2026-11-01T22-40-38_448-jvmRun1 surefire10557274194331136032tmp surefire_014284246750413320140tmp"/>
+    <property name="sun.java.command" value="/workspaces/Pratica07_TDD/tdd_07/target/surefire/surefirebooter6639370472848849386.jar /workspaces/Pratica07_TDD/tdd_07/target/surefire 2026-11-01T21-59-28_375-jvmRun1 surefire17178092392762132631tmp surefire_012003020456785790721tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.pratica07.ClienteTest#deveAceitarGeneroF"/>
+    <property name="test" value="com.pratica07.ClienteTest#deveCriarClienteComGeneroPadrao"/>
     <property name="surefire.test.class.path" value="/workspaces/Pratica07_TDD/tdd_07/target/test-classes:/workspaces/Pratica07_TDD/tdd_07/target/classes:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/codespace/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/codespace/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/codespace/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/codespace/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/codespace/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/codespace"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/workspaces/Pratica07_TDD/tdd_07/target/surefire/surefirebooter5912751286823862113.jar"/>
+    <property name="surefire.real.class.path" value="/workspaces/Pratica07_TDD/tdd_07/target/surefire/surefirebooter6639370472848849386.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.5.0.2+1-LTS"/>
     <property name="user.name" value="codespace"/>
@@ -56,5 +56,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="deveAceitarGeneroF" classname="com.pratica07.ClienteTest" time="0.161"/>
+  <testcase name="deveCriarClienteComGeneroPadrao" classname="com.pratica07.ClienteTest" time="0.104">
+    <failure type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <nd> but was: <null>
+	at com.pratica07.ClienteTest.deveCriarClienteComGeneroPadrao(ClienteTest.java:17)
+]]></failure>
+  </testcase>
 </testsuite>

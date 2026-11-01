@@ -14,7 +14,7 @@ public class Cliente {
         this(id, nome, desconto, "nd");
     }
 
-public Cliente(int id, String nome, int desconto, String genero) {
+    public Cliente(int id, String nome, int desconto, String genero) {
         if (nome == null) {
             throw new NullPointerException("O nome não pode ser nulo.");
         }
@@ -68,6 +68,6 @@ public Cliente(int id, String nome, int desconto, String genero) {
 
     @Override
     public String toString() {
-        return nome + "(" + id + ")(" + desconto + "%)";
+        return nome + "[" + id + "," + nome + "," + desconto + "]";
     }
 }

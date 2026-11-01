@@ -1,65 +1,132 @@
 
 package com.pratica07;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClienteTest {
 
     @Test
-    void deveCriarClienteComGeneroPadrao() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 10);
+    void deveCriarClienteComTresParametros() {
+        Cliente cliente = new Cliente(1, "Lara", 10);
 
         assertEquals(1, cliente.getId());
-        assertEquals("Ana", cliente.getNome());
+        assertEquals("Lara", cliente.getNome());
         assertEquals(10, cliente.getDesconto());
         assertEquals("nd", cliente.getGenero());
     }
 
     @Test
-    void deveCriarClienteComGeneroInformado() {
-        Cliente1 cliente = new Cliente1(2, "João", 20, "m");
+    void deveCriarClienteComQuatroParametros() {
+        Cliente cliente = new Cliente(2, "Ana", 20, "f");
 
-        assertEquals("m", cliente.getGenero());
+        assertEquals(2, cliente.getId());
+        assertEquals("Ana", cliente.getNome());
+        assertEquals(20, cliente.getDesconto());
+        assertEquals("f", cliente.getGenero());
     }
 
     @Test
-    void deveLancarExcecaoQuandoNomeForNulo() {
-        assertThrows(NullPointerException.class,
-                () -> new Cliente1(1, null, 10));
+    void deveRetornarIdDoCliente() {
+        Cliente cliente = new Cliente(1, "Lara", 10);
+
+        assertEquals(1, cliente.getId());
     }
 
     @Test
-    void deveLancarExcecaoQuandoGeneroForNulo() {
-        assertThrows(NullPointerException.class,
-                () -> new Cliente1(1, "Ana", 10, null));
+    void deveRetornarNomeDoCliente() {
+        Cliente cliente = new Cliente(1, "Lara", 10);
+
+        assertEquals("Lara", cliente.getNome());
     }
 
     @Test
-    void deveAceitarGeneroF() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 10, "f");
+    void deveRetornarGeneroDoCliente() {
+        Cliente cliente = new Cliente(1, "Lara", 10, "f");
 
         assertEquals("f", cliente.getGenero());
     }
 
     @Test
+    void deveRetornarDescontoDoCliente() {
+        Cliente cliente = new Cliente(1, "Lara", 10);
+
+        assertEquals(10, cliente.getDesconto());
+    }
+
+    @Test
+    void deveAlterarDescontoDoCliente() {
+        Cliente cliente = new Cliente(1, "Lara", 10);
+
+        cliente.setDesconto(20);
+
+        assertEquals(20, cliente.getDesconto());
+    }
+
+    @Test
+    void deveAceitarDescontoMinimo() {
+        Cliente cliente = new Cliente(1, "Lara", 0);
+
+        assertEquals(0, cliente.getDesconto());
+    }
+
+    @Test
+    void deveAceitarDescontoMaximo() {
+        Cliente cliente = new Cliente(1, "Lara", 100);
+
+        assertEquals(100, cliente.getDesconto());
+    }
+
+    @Test
+    void deveRetornarDadosDoCliente() {
+        Cliente cliente = new Cliente(1, "Lara", 10);
+
+        assertEquals("Lara[1,Lara,10]", cliente.toString());
+    }
+
+    @Test
+    void deveAceitarGeneroM() {
+        Cliente cliente = new Cliente(2, "João", 20, "m");
+
+        assertEquals("m", cliente.getGenero());
+    }
+
+    @Test
     void deveAceitarGeneroNd() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 10, "nd");
+        Cliente cliente = new Cliente(1, "Ana", 10, "nd");
 
         assertEquals("nd", cliente.getGenero());
     }
 
     @Test
+    void deveAceitarGeneroF() {
+        Cliente cliente = new Cliente(1, "Ana", 10, "f");
+
+        assertEquals("f", cliente.getGenero());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoNomeForNulo() {
+        assertThrows(NullPointerException.class,
+                () -> new Cliente(1, null, 10));
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoGeneroForNulo() {
+        assertThrows(NullPointerException.class,
+                () -> new Cliente(1, "Ana", 10, null));
+    }
+
+    @Test
     void deveConverterGeneroParaMinusculo() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 10, "F");
+        Cliente cliente = new Cliente(1, "Ana", 10, "F");
 
         assertEquals("f", cliente.getGenero());
     }
 
     @Test
     void deveRemoverEspacosDoGenero() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 10, " M ");
+        Cliente cliente = new Cliente(1, "Ana", 10, " M ");
 
         assertEquals("m", cliente.getGenero());
     }
@@ -67,48 +134,18 @@ class ClienteTest {
     @Test
     void deveLancarExcecaoParaGeneroInvalido() {
         assertThrows(IllegalArgumentException.class,
-                () -> new Cliente1(1, "Ana", 10, "x"));
-    }
-
-    @Test
-    void deveAlterarDesconto() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 10);
-
-        cliente.setDesconto(25);
-
-        assertEquals(25, cliente.getDesconto());
-    }
-
-    @Test
-    void deveAceitarDescontoZero() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 0);
-
-        assertEquals(0, cliente.getDesconto());
-    }
-
-    @Test
-    void deveAceitarDescontoCem() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 100);
-
-        assertEquals(100, cliente.getDesconto());
+                () -> new Cliente(1, "Ana", 10, "x"));
     }
 
     @Test
     void deveLancarExcecaoParaDescontoNegativo() {
         assertThrows(IllegalArgumentException.class,
-                () -> new Cliente1(1, "Ana", -1));
+                () -> new Cliente(1, "Ana", -1));
     }
 
     @Test
     void deveLancarExcecaoParaDescontoMaiorQueCem() {
         assertThrows(IllegalArgumentException.class,
-                () -> new Cliente1(1, "Ana", 101));
-    }
-
-    @Test
-    void deveRetornarToStringCorretamente() {
-        Cliente1 cliente = new Cliente1(1, "Ana", 15);
-
-        assertEquals("Ana(1)(15%)", cliente.toString());
+                () -> new Cliente(1, "Ana", 101));
     }
 }
