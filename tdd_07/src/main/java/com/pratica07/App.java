@@ -1,4 +1,4 @@
-package com.pratica_07;
+package com.pratica07;
 
 /**
  * Hello world!
