@@ -1,4 +1,3 @@
-
 package com.pratica07;
 
 /**
@@ -57,13 +56,17 @@ public class Cliente {
 
         genero = genero.trim().toLowerCase();
 
-        if (!genero.equals("m")
-                && !genero.equals("f")
-                && !genero.equals("nd")) {
+        if (!generoValido(genero)) {
             throw new IllegalArgumentException("Gênero inválido.");
         }
 
         this.genero = genero;
+    }
+
+    private boolean generoValido(String genero) {
+        return genero.equals("m")
+                || genero.equals("f")
+                || genero.equals("nd");
     }
 
     @Override
