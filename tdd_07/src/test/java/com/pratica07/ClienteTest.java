@@ -84,8 +84,6 @@ class ClienteTest {
         assertEquals("Lara[1,Lara,10]", cliente.toString());
     }
 
-    // Testes adicionais criados pela dupla
-
     @Test
     void deveAceitarGeneroM() {
         Cliente cliente = new Cliente(2, "João", 20, "m");
@@ -98,6 +96,13 @@ class ClienteTest {
         Cliente cliente = new Cliente(1, "Ana", 10, "nd");
 
         assertEquals("nd", cliente.getGenero());
+    }
+
+    @Test
+    void deveAceitarGeneroF() {
+        Cliente cliente = new Cliente(1, "Ana", 10, "f");
+
+        assertEquals("f", cliente.getGenero());
     }
 
     @Test
