@@ -42,6 +42,7 @@ public class Cliente {
 
    @Override
     public String toString() {
-    return nome + "[" + id + "," + nome + "," + desconto + "]";
-}
+    String dadosCliente = nome + "[" + id + "," + nome + "," + desconto + "]";
+    return dadosCliente;
+    }
 }
