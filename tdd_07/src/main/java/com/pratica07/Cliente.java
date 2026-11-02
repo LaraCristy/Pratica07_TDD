@@ -68,9 +68,8 @@ public class Cliente {
                 || genero.equals("f")
                 || genero.equals("nd");
     }
-
     @Override
     public String toString() {
-        return nome + "[" + id + "," + nome + "," + desconto + "]";
+    return nome + "(" + id + ")(" + desconto + "%)";
     }
 }

@@ -81,7 +81,7 @@ class ClienteTest {
     void deveRetornarDadosDoCliente() {
         Cliente cliente = new Cliente(1, "Lara", 10);
 
-        assertEquals("Lara[1,Lara,10]", cliente.toString());
+       assertEquals("Lara(1)(10%)", cliente.toString());
     }
 
     @Test
