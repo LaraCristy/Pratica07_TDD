@@ -1,2 +1,5 @@
-/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica_07/AppTest.java
-/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica_07/ClienteTest.java
+/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica07/AppTest.java
+/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica07/Cliente1Test.java
+/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica07/ClienteTest.java
+/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica07/ContaCliente1Test.java
+/workspaces/Pratica07_TDD/tdd_07/src/test/java/com/pratica07/FaturaCliente1Test.java
