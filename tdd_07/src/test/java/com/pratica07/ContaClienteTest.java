@@ -3,6 +3,7 @@ package com.pratica07;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ContaClienteTest {
 
@@ -116,6 +117,34 @@ void deveAvisarQuandoSaldoForInsuficiente() {
     } finally {
         System.setOut(original);
     }
+}
+
+@Test
+void deveMostrarNovoSaldoAposDeposito() {
+    Cliente cliente = new Cliente(1, "Lara", 10);
+    ContaCliente conta = new ContaCliente(1, cliente, 100.0);
+
+    java.io.ByteArrayOutputStream saida =
+            new java.io.ByteArrayOutputStream();
+    java.io.PrintStream original = System.out;
+
+    try {
+        System.setOut(new java.io.PrintStream(saida));
+
+        assertEquals(150.0, conta.addDeposito(50.0));
+        assertTrue(saida.toString().contains("R$150.00"));
+    } finally {
+        System.setOut(original);
+    }
+}
+
+@Test
+void naoDevePermitirDepositoNegativo() {
+    Cliente cliente = new Cliente(1, "Lara", 10);
+    ContaCliente conta = new ContaCliente(1, cliente, 100.0);
+
+    assertThrows(IllegalArgumentException.class,
+            () -> conta.addDeposito(-50.0));
 }
 
 }
