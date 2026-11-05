@@ -45,8 +45,7 @@ public class ContaCliente {
 
     public double addDeposito(double valor) {
         saldo += valor;
-        System.out.println(String.format(
-                Locale.ROOT, "Novo saldo: R$%.2f", saldo));
+        System.out.println("Novo saldo: " + formatarSaldo());
         return saldo;
     }
 
@@ -66,7 +65,10 @@ public class ContaCliente {
                 ? "null"
                 : cliente.getNome() + "(" + cliente.getId() + ")";
 
-        return String.format(
-                Locale.ROOT, "%s saldo=R$%.2f", nomeEIdCliente, saldo);
+        return nomeEIdCliente + " saldo=" + formatarSaldo();
+    }
+
+    private String formatarSaldo() {
+        return String.format(Locale.ROOT, "R$%.2f", saldo);
     }
 }
