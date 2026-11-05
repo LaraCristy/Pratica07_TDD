@@ -89,4 +89,33 @@ void deveRetornarDadosDaConta() {
     assertEquals("Lara(1) saldo=R$100.00", conta.toString());
 }
 
+@Test
+void devePermitirSaqueIgualAoSaldo() {
+    Cliente cliente = new Cliente(1, "Lara", 10);
+    ContaCliente conta = new ContaCliente(1, cliente, 100.0);
+
+    assertEquals(0.0, conta.subSaldo(100.0));
+    assertEquals(0.0, conta.getSaldo());
+}
+
+@Test
+void deveAvisarQuandoSaldoForInsuficiente() {
+    Cliente cliente = new Cliente(1, "Lara", 10);
+    ContaCliente conta = new ContaCliente(1, cliente, 100.0);
+
+    java.io.ByteArrayOutputStream saida =
+            new java.io.ByteArrayOutputStream();
+    java.io.PrintStream original = System.out;
+
+    try {
+        System.setOut(new java.io.PrintStream(saida));
+
+        conta.subSaldo(150.0);
+
+        assertTrue(saida.toString().contains("Saldo insuficiente"));
+    } finally {
+        System.setOut(original);
+    }
+}
+
 }
