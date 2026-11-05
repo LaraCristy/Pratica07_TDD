@@ -43,11 +43,17 @@ public class ContaCliente {
         this.saldo = saldo;
     }
 
-    public double addDeposito(double valor) {
-        saldo += valor;
-        System.out.println("Novo saldo: " + formatarSaldo());
-        return saldo;
+    
+public double addDeposito(double valor) {
+    if (valor < 0) {
+        throw new IllegalArgumentException("O deposito nao pode ser negativo.");
     }
+
+    saldo += valor;
+    System.out.println("Novo saldo: " + formatarSaldo());
+    return saldo;   
+    }
+
 
     public double subSaldo(double valor) {
         if (valor > saldo) {
