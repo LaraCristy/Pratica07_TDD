@@ -34,5 +34,49 @@ class FaturaClienteTest {
         fatura.toString()
     );
     }
+    
+    @Test
+    void deveCriarFaturaComApenasId() {
+    FaturaCliente fatura = new FaturaCliente(2);
+
+    assertEquals(2, fatura.getId());
+    assertNull(fatura.getCliente());
+    assertEquals(0.0, fatura.getValor());   
+    }
+
+@Test
+void deveAlterarClienteDaFatura() {
+    FaturaCliente fatura = new FaturaCliente(1);
+    Cliente cliente = new Cliente(2, "Ana", 20);
+
+    fatura.setCliente(cliente);
+
+    assertEquals(cliente, fatura.getCliente());
+}
+
+@Test
+void deveAlterarValorDaFatura() {
+    FaturaCliente fatura = new FaturaCliente(1);
+
+    fatura.setValor(150.0);
+
+    assertEquals(150.0, fatura.getValor());
+}
+
+@Test
+void deveCalcularDescontoZero() {
+    Cliente cliente = new Cliente(1, "Lara", 0);
+    FaturaCliente fatura = new FaturaCliente(1, cliente, 100.0);
+
+    assertEquals(100.0, fatura.getValorComDesconto());
+}
+
+@Test
+void deveCalcularDescontoCemPorCento() {
+    Cliente cliente = new Cliente(1, "Lara", 100);
+    FaturaCliente fatura = new FaturaCliente(1, cliente, 100.0);
+
+    assertEquals(0.0, fatura.getValorComDesconto());
+}
 
 }
