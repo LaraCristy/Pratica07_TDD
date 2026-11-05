@@ -2,6 +2,7 @@
 package com.pratica07;
 
 public class FaturaCliente1 {
+
     private int id;
     private Cliente1 cliente;
     private double valor;
@@ -37,11 +38,17 @@ public class FaturaCliente1 {
     }
 
     public double getValorComDesconto() {
-        return 0.0;
+        if (cliente == null) {
+            return valor;
+        }
+
+        return valor * (100 - cliente.getDesconto()) / 100.0;
     }
 
     @Override
     public String toString() {
-        return "";
+        return "Fatura [id=" + id
+                + ", cliente=" + cliente
+                + ", valor=" + valor + " ]";
     }
 }

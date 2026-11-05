@@ -1,7 +1,10 @@
 
 package com.pratica07;
 
+import java.util.Locale;
+
 public class ContaCliente1 {
+
     private int id;
     private Cliente1 cliente;
     private double saldo;
@@ -41,15 +44,31 @@ public class ContaCliente1 {
     }
 
     public double addDeposito(double valor) {
+        saldo += valor;
+        System.out.println("Novo saldo: " + formatarSaldo());
         return saldo;
     }
 
     public double subSaldo(double valor) {
+        if (valor > saldo) {
+            System.out.println("Saldo insuficiente para realizar o saque.");
+            return saldo;
+        }
+
+        saldo -= valor;
         return saldo;
     }
 
     @Override
     public String toString() {
-        return "";
+        String nomeEIdCliente = cliente == null
+                ? "null"
+                : cliente.getNome() + "(" + cliente.getId() + ")";
+
+        return nomeEIdCliente + " saldo=" + formatarSaldo();
+    }
+
+    private String formatarSaldo() {
+        return String.format(Locale.ROOT, "R$%.2f", saldo);
     }
 }
