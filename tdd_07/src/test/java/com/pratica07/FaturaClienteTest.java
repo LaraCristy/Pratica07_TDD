@@ -24,4 +24,15 @@ class FaturaClienteTest {
     assertEquals(90.0, fatura.getValorComDesconto());
     }
 
+    @Test
+    void deveRetornarDadosDaFatura() {
+    Cliente cliente = new Cliente(1, "Lara", 10);
+    FaturaCliente fatura = new FaturaCliente(1, cliente, 100.0);
+
+    assertEquals(
+        "Fatura [id=1, cliente=Lara(1)(10%), valor=100.0 ]",
+        fatura.toString()
+    );
+    }
+
 }
