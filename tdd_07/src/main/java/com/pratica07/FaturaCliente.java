@@ -44,6 +44,6 @@ public class FaturaCliente {
 
     @Override
     public String toString() {
-        return "";
+        return "Fatura [id=" + id + ", cliente=" + cliente + ", valor=" + valor + " ]";
     }
 }
